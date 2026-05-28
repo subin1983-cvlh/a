@@ -1,0 +1,457 @@
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>모바일 청첩장</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Noto Serif KR', serif;
+      background:#f8f6f3;
+      color:#333;
+      line-height:1.7;
+    }
+
+    .wrap{
+      max-width:500px;
+      margin:0 auto;
+      background:#fff;
+      overflow:hidden;
+      box-shadow:0 0 20px rgba(0,0,0,0.05);
+    }
+
+    /* 메인 */
+
+    .hero{
+      width:100%;
+      height:100vh;
+      background:url('./사진2.png') center center/cover no-repeat;
+      position:relative;
+    }
+
+    .overlay{
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.28);
+    }
+
+    .hero-text{
+      position:absolute;
+      bottom:70px;
+      width:100%;
+      text-align:center;
+      color:#fff;
+      z-index:2;
+      padding:0 20px;
+    }
+
+    .hero-text h1{
+      font-size:34px;
+      letter-spacing:3px;
+      margin-bottom:14px;
+      font-weight:500;
+    }
+
+    .hero-text p{
+      font-size:17px;
+    }
+
+    /* 공통 */
+
+    section{
+      padding:60px 28px;
+      text-align:center;
+    }
+
+    .title{
+      font-size:25px;
+      color:#8b6f65;
+      margin-bottom:28px;
+      font-weight:500;
+    }
+
+    .message{
+      white-space:pre-line;
+      color:#555;
+      font-size:16px;
+    }
+
+    /* 디데이 */
+
+    .dday-box{
+      background:#faf7f4;
+    }
+
+    .dday{
+      font-size:44px;
+      color:#8b6f65;
+      font-weight:700;
+      margin-bottom:12px;
+    }
+
+    .dday-text{
+      color:#666;
+      font-size:16px;
+    }
+
+    /* 사진 */
+
+    .photo{
+      width:100%;
+      border-radius:20px;
+      overflow:hidden;
+      margin-top:35px;
+    }
+
+    .photo img{
+      width:100%;
+      display:block;
+    }
+
+    /* 정보 */
+
+    .info-section{
+      background:#faf7f4;
+    }
+
+    .info-card{
+      background:#fff;
+      border-radius:22px;
+      padding:30px 22px;
+      box-shadow:0 4px 18px rgba(0,0,0,0.06);
+    }
+
+    .info-item{
+      margin-bottom:24px;
+    }
+
+    .info-item:last-child{
+      margin-bottom:0;
+    }
+
+    .label{
+      font-size:15px;
+      color:#8b6f65;
+      font-weight:700;
+      margin-bottom:8px;
+    }
+
+    .value{
+      font-size:16px;
+      color:#444;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:28px;
+      padding:14px 28px;
+      border-radius:999px;
+      background:#8b6f65;
+      color:#fff;
+      text-decoration:none;
+      font-size:15px;
+    }
+
+    /* 참석 여부 */
+
+    .form-box{
+      text-align:left;
+      margin-top:30px;
+    }
+
+    .form-group{
+      margin-bottom:20px;
+    }
+
+    .form-group label{
+      display:block;
+      margin-bottom:8px;
+      color:#555;
+      font-size:15px;
+      font-weight:600;
+    }
+
+    input,
+    select,
+    textarea{
+      width:100%;
+      padding:14px;
+      border:1px solid #ddd;
+      border-radius:14px;
+      font-size:15px;
+      font-family:'Noto Serif KR', serif;
+      outline:none;
+    }
+
+    textarea{
+      resize:none;
+      height:100px;
+    }
+
+    .submit-btn{
+      width:100%;
+      padding:16px;
+      border:none;
+      border-radius:14px;
+      background:#8b6f65;
+      color:#fff;
+      font-size:16px;
+      cursor:pointer;
+      margin-top:10px;
+    }
+
+    .submit-btn:hover{
+      opacity:0.9;
+    }
+
+    /* 푸터 */
+
+    footer{
+      padding:45px 20px 60px;
+      text-align:center;
+      font-size:14px;
+      color:#888;
+    }
+
+    @media (max-width:480px){
+
+      .hero-text h1{
+        font-size:28px;
+      }
+
+      .hero-text p{
+        font-size:15px;
+      }
+
+      section{
+        padding:50px 22px;
+      }
+
+      .dday{
+        font-size:38px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap">
+
+    <!-- 메인 -->
+
+    <div class="hero">
+
+      <div class="overlay"></div>
+
+      <div class="hero-text">
+        <h1>민수 ♥ 지은</h1>
+        <p>2029년 9월 22일 토요일</p>
+      </div>
+
+    </div>
+
+    <!-- 인사말 -->
+
+    <section>
+
+      <h2 class="title">INVITATION</h2>
+
+      <p class="message">
+서로 다른 길을 걸어온 두 사람이
+이제 같은 길을 함께 걸어가려 합니다.
+
+소중한 분들을 모시고
+저희의 첫걸음을 함께 나누고 싶습니다.
+
+부디 오셔서 축복해 주세요.
+      </p>
+
+      <div class="photo">
+        <img src="./사진10.png" alt="웨딩사진">
+      </div>
+
+    </section>
+
+    <!-- 디데이 -->
+
+    <section class="dday-box">
+
+      <h2 class="title">WEDDING DAY</h2>
+
+      <div class="dday" id="dday">D-0</div>
+
+      <div class="dday-text">
+        저희의 결혼식까지 남은 시간
+      </div>
+
+    </section>
+
+    <!-- 예식 정보 -->
+
+    <section class="info-section">
+
+      <h2 class="title">WEDDING INFO</h2>
+
+      <div class="info-card">
+
+        <div class="info-item">
+          <div class="label">신랑 & 신부</div>
+          <div class="value">김민수 ♥ 박지은</div>
+        </div>
+
+        <div class="info-item">
+          <div class="label">예식 일시</div>
+          <div class="value">
+            2029년 9월 22일 토요일<br>
+            오후 2시
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="label">예식 장소</div>
+          <div class="value">
+            라온웨딩홀 3층 그랜드홀<br>
+            서울특별시 강남구 테헤란로 123
+          </div>
+        </div>
+
+        <a
+          href="https://map.kakao.com/"
+          target="_blank"
+          class="btn"
+        >
+          지도 보기
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- 갤러리 -->
+
+    <section>
+
+      <h2 class="title">GALLERY</h2>
+
+      <div class="photo">
+        <img src="./사진16.jpg" alt="웨딩갤러리">
+      </div>
+
+    </section>
+
+    <!-- 참석 여부 -->
+
+    <section class="info-section">
+
+      <h2 class="title">참석 여부 전달</h2>
+
+      <div class="info-card">
+
+        <div class="form-box">
+
+          <div class="form-group">
+            <label>성함</label>
+            <input type="text" placeholder="이름을 입력해주세요">
+          </div>
+
+          <div class="form-group">
+            <label>참석 여부</label>
+
+            <select>
+              <option>참석합니다</option>
+              <option>참석이 어렵습니다</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>전달 메시지</label>
+
+            <textarea placeholder="축하 메시지를 남겨주세요"></textarea>
+          </div>
+
+          <button class="submit-btn">
+            전달하기
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- 계좌 -->
+
+    <section>
+
+      <h2 class="title">마음 전하실 곳</h2>
+
+      <div class="info-card">
+
+        <div class="info-item">
+          <div class="label">신랑측 계좌</div>
+          <div class="value">
+            국민은행 123456-78-123456<br>
+            김민수
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="label">신부측 계좌</div>
+          <div class="value">
+            신한은행 110-123-456789<br>
+            박지은
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <footer>
+      함께해 주시는 모든 분들께 감사드립니다.
+    </footer>
+
+  </div>
+
+  <script>
+
+    // 디데이 계산
+
+    const weddingDate = new Date("2029-09-22T00:00:00");
+    const today = new Date();
+
+    const diff = weddingDate - today;
+
+    const dday = Math.ceil(diff / (1000 * 60 * 60 * 24));
+
+    const ddayText = document.getElementById("dday");
+
+    if(dday > 0){
+      ddayText.innerText = `D-${dday}`;
+    }else if(dday === 0){
+      ddayText.innerText = "D-DAY";
+    }else{
+      ddayText.innerText = "결혼식이 지났습니다";
+    }
+
+  </script>
+
+</body>
+</html>
+```
